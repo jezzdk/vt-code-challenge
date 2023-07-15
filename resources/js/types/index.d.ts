@@ -1,14 +1,16 @@
-export enum NodeType {
-  Other = 0,
-  Manager = 1,
-  Developer = 2,
-}
+import { NodeType } from "./enums";
 
 export interface User {
     id: number;
     name: string;
     email: string;
     email_verified_at: string;
+}
+
+export interface CreateNodeRequest {
+  name: string;
+  type: NodeType;
+  info: string;
 }
 
 export interface Node {
