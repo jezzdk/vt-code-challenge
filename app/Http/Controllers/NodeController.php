@@ -13,7 +13,7 @@ class NodeController extends Controller
      */
     public function index()
     {
-        $roots = Node::where('depth', 0)->get();
+        $roots = Node::where('depth', 0)->withCount('children')->get();
 
         return $roots;
     }
@@ -33,7 +33,7 @@ class NodeController extends Controller
      */
     public function show(Node $node)
     {
-        return $node->load('children');
+        return $node->loadCount('children')->load('children');
     }
 
     /**
