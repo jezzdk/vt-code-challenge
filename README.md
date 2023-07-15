@@ -1,7 +1,7 @@
 ## Requirements
 
-PHP 8.1
-Node 18+
+- PHP 8.1
+- Node 18+
 
 ## Get started
 
