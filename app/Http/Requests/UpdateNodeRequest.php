@@ -27,8 +27,8 @@ class UpdateNodeRequest extends FormRequest
             'parent_id' => 'sometimes|integer|exists:nodes,id',
             'depth' => 'sometimes|integer|min:1',
             'name' => 'sometimes|string|max:255',
-            'type' => [new Enum(NodeType::class)],
-            'info' => 'nullable|string|max:255',
+            'type' => ['sometimes', new Enum(NodeType::class)],
+            'info' => 'sometimes|nullable|string|max:255',
         ];
     }
 }

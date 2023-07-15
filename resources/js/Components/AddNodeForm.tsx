@@ -17,7 +17,7 @@ export default function(props: Props) {
   const [info, setInfo] = useState<string>('');
 
   return (
-    <div className="space-y-2">
+    <div className="p-2 bg-gray-200 space-y-2">
       <div>
         <InputLabel value="Name" />
         <TextInput name="name" value={name} onChange={(e) => setName(e.currentTarget.value)} />
@@ -25,9 +25,9 @@ export default function(props: Props) {
       <div>
         <InputLabel value="Type" />
         <ul className="flex gap-4">
-          <li><input type="radio" name="type" value={0} checked={type === 0} onChange={(e) => setType(Number(e.currentTarget.value))} /> Other</li>
-          <li><input type="radio" name="type" value={1} checked={type === 1} onChange={(e) => setType(Number(e.currentTarget.value))} /> Manager</li>
-          <li><input type="radio" name="type" value={2} checked={type === 2} onChange={(e) => setType(Number(e.currentTarget.value))} /> Developer</li>
+          <li><label><input type="radio" name="type" value={NodeType.Other} checked={type === NodeType.Other} onChange={(e) => setType(Number(e.currentTarget.value))} /> Other</label></li>
+          <li><label><input type="radio" name="type" value={NodeType.Manager} checked={type === NodeType.Manager} onChange={(e) => setType(Number(e.currentTarget.value))} /> Manager</label></li>
+          <li><label><input type="radio" name="type" value={NodeType.Developer} checked={type === NodeType.Developer} onChange={(e) => setType(Number(e.currentTarget.value))} /> Developer</label></li>
         </ul>
       </div>
       {type !== 0 && (

@@ -13,6 +13,14 @@ export interface CreateNodeRequest {
   info: string;
 }
 
+export interface UpdateNodeRequest {
+  parent_id?: number;
+  depth?: number;
+  name?: string;
+  type?: NodeType;
+  info?: string;
+}
+
 export interface Node {
   id: number;
   parent_id?: number;

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CreateNodeRequest, Node } from "@/types";
+import { CreateNodeRequest, Node, UpdateNodeRequest } from "@/types";
 
 export function useNodes() {
   const fetchRoots = async (): Promise<Node[]> => {
@@ -21,9 +21,15 @@ export function useNodes() {
     return response.data;
   }
 
+  const updateNode = async (node: Node, data: UpdateNodeRequest): Promise<Node> => {
+    const response = await axios.patch(`/api/nodes/${node.id}`, data);
+    return response.data;
+  }
+
   return {
     fetchRoots,
     fetchNode,
     addNode,
+    updateNode,
   };
 }
