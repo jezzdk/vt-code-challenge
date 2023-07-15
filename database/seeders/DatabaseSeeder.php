@@ -12,7 +12,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\Node::firstOrCreate([
+            'parent_id' => null,
+            'depth' => 0,
+            'name' => 'CEO',
+        ]);
 
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
