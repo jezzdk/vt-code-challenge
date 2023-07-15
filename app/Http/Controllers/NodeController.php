@@ -41,6 +41,10 @@ class NodeController extends Controller
      */
     public function update(UpdateNodeRequest $request, Node $node)
     {
+        if ($node->depth === 0 && $request->filled('depth') && $request->input('depth') !== $node->depth) {
+            abort(403, 'Root node can not change parent');
+        }
+
         $node->update($request->validated());
 
         return $node->load('children');
@@ -51,6 +55,10 @@ class NodeController extends Controller
      */
     public function destroy(Node $node)
     {
+        if ($node->depth === 0) {
+            abort(403, 'Root node can not be deleted');
+        }
+
         $node->delete();
 
         return response()->noContent();

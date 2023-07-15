@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\NodeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/nodes', [NodeController::class, 'index']);
+Route::post('/nodes', [NodeController::class, 'store']);
+Route::get('/nodes/{node}', [NodeController::class, 'show']);
+Route::patch('/nodes/{node}', [NodeController::class, 'update']);
+Route::delete('/nodes/{node}', [NodeController::class, 'destroy']);

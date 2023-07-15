@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('nodes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('parent_id')->constrained('nodes', 'id')->cascadeOnDelete();
+            $table->foreignId('parent_id')->nullable()->constrained('nodes', 'id')->cascadeOnDelete();
             $table->integer('depth')->unsigned()->default(0);
             $table->string('name');
             $table->enum('type', [
